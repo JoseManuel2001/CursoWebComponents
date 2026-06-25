@@ -4,9 +4,33 @@
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <title>Page Title</title>
-    <link rel='stylesheet' href='main.css'>
 </head>
 <body>
-    
+    <custom-button>Pulsar</custom-button>
+    <custom-button>Pulsar1</custom-button>
+    <custom-button>Pulsar2</custom-button>
+
+    <button is='custom-button2'>Pulsar3</button>
+    <script>
+        class CustomButton extends HTMLElement {
+            constructor() {
+                super();
+                this.addEventListener('click', () => {
+                    alert('Boton pulsado!');
+                });
+            }
+        }
+        class CustomButton2 extends HTMLButtonElement {
+            constructor() {
+                super();
+                this.addEventListener('click', () => {
+                    alert('Boton pulsado!');
+                });
+            }
+        }
+        window.customElements.define('custom-button', CustomButton);
+        window.customElements.define('custom-button2', CustomButton2, { extends: 'button' 
+        });
+    </script>
 </body>
 </html>
