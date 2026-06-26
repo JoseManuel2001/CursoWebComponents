@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class MiElemento extends HTMLElement {
+            constructor() {
+                super();
+            }
+            connectedCallback() {
+                this.innerText = 'Mi Texto';
+                this.style.color = this.color;
+            }
+            get color() {
+                return this.getAttribute('micolor');
+            }
+        }
+        window.customElements.define('mi-elemento', MiElemento);
+    </script>
+    <mi-elemento micolor="red"></mi-elemento>
+    <mi-elemento micolor="blue"></mi-elemento>
+    <mi-elemento micolor="green"></mi-elemento>
+</body>
+</html>
