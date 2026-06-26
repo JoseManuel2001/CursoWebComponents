@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div">
+        <h1>Mi primer template</h1>
+    </div>
+    <template id="template">
+        <h1>Desde el template1</h1>
+    </template>
+    <template id="lista">
+        <li>
+            <span>Hola:</span>
+            <span></span>
+        </li>
+    </template>
+    <ul id="ul">
+
+    </ul>
+    <script>
+        const template = document.querySelector('#template');
+        const templateClone = document.importNode(template.content, true);
+        document.body.appendChild(templateClone);
+
+        const lista = ['juan', 'pedro', 'carlos', 'sofia', 'mayte', 'luis'];
+        const template2 = document.querySelector('#lista');
+        lista.forEach((nombre) => {
+            const templateClone2 = document.importNode(template2.content, true);
+            templateClone2.querySelectorAll('span')[1].innerText = nombre;
+            ul.appendChild(templateClone2);
+        });
+    </script>
+</body>
+
+</html>
